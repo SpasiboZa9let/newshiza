@@ -22,3 +22,10 @@ export const BULLET_CD_MS = 300;
 export const METEORS_COUNT = 8;
 
 export const TEX = { bullet: 'bulletBlue', xp: 'xpOrb', meteor: 'meteor' };
+
+// --- Новые параметры баланса ---
+export const PLAYER_MAX_HP = 140;
+export const CONTACT_DAMAGE = 6;     // урон с касания
+export const INVULN_MS = 700;        // неуязвимость после удара
+export const REGEN_PER_SEC = 3;      // реген в секунду
+export const GOB_STOP_DIST = 52;     // дистанция остановки гоблина

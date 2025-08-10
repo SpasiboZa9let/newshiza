@@ -1,4 +1,5 @@
 import { positionGoblinHpBar } from './spawn.js';
+import { GOB_STOP_DIST } from './config.js';
 
 export function aiTick() {
   const scene = this;
@@ -7,7 +8,6 @@ export function aiTick() {
   scene.goblins.children.iterate(g => {
     if (!g || !g.active) return;
 
-    // стопаем анимацию, если вне экрана
     const onScreen = Phaser.Geom.Rectangle.Overlaps(
       cam.worldView, new Phaser.Geom.Rectangle(g.x-32, g.y-32, 64, 64)
     );
@@ -16,7 +16,7 @@ export function aiTick() {
     const dx = scene.player.x - g.x;
     const dy = scene.player.y - g.y;
     const dist = Math.hypot(dx, dy);
-    const stop = 40, speed = 90;
+    const stop = GOB_STOP_DIST, speed = 90;
 
     if (dist > stop) {
       const ux = dx / dist, uy = dy / dist;
